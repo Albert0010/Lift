@@ -1,0 +1,266 @@
+html{
+    height: 100%;
+}
+body{
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.building{
+    width: 1500px;
+    height: 704px;
+    /*position: relative;*/
+    display: flex;
+    flex-flow: row wrap;
+}
+.left1{
+
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 300px;
+    height: 88px;
+}
+.left2{
+    position: absolute;
+    left: 0;
+    top: 93px;
+    width: 300px;
+    height: 88px;
+}
+.left3{
+    position: absolute;
+    left: 0;
+    top: 181px;
+    width: 300px;
+    height: 88px;
+}
+.left4{
+    position: absolute;
+    left: 0;
+    top:269px;
+    width: 300px;
+    height: 88px;
+}
+.left5{
+    position: absolute;
+    left: 0;
+    top:357px;
+    width: 300px;
+    height: 88px;
+}
+.left6{
+    position: absolute;
+    left: 0;
+    top:445px;
+    width: 300px;
+    height: 88px;
+}
+.left7{
+    position: absolute;
+    left: 0;
+    top:533px;
+    width: 300px;
+    height: 88px;
+}
+.left8{
+    position: absolute;
+    left: 0;
+    top:621px;
+    width: 300px;
+    height: 88px;
+}
+
+.left_side{
+    position: absolute;
+    left: 0;
+    height: 704px;
+    width: 300px;
+}
+
+.right8{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 300px;
+    height: 88px;
+}
+.right7{
+    position: absolute;
+    right: 0;
+    top: 93px;
+    width: 300px;
+    height: 88px;
+}
+.right6{
+    position: absolute;
+    right: 0;
+    top: 181px;
+    width: 300px;
+    height: 88px;
+}
+.right5{
+    position: absolute;
+    right: 0;
+    top:269px;
+    width: 300px;
+    height: 88px;
+}
+.right4{
+    position: absolute;
+    right: 0;
+    top:357px;
+    width: 300px;
+    height: 88px;
+}
+.right3{
+    position: absolute;
+    right: 0;
+    top:445px;
+    width: 300px;
+    height: 88px;
+}
+.right2{
+    position: absolute;
+    right: 0;
+    top:533px;
+    width: 300px;
+    height: 88px;
+}
+.right1{
+    position: absolute;
+    right: 0;
+    top:621px;
+    width: 300px;
+    height: 88px;
+}
+
+.right_side{
+    position: absolute;
+    left: 600px;
+    height: 704px;
+    width: 300px;
+
+}
+
+.floor{
+    width: 300px;
+    height: 88px;
+    background-color: darkolivegreen;
+}
+
+
+
+
+
+.obj{
+    width: 300px;
+    height: 88px;
+    position: absolute;
+    bottom: 0;
+}
+
+.elevator{
+    width: 300px;
+    height: 88px;
+}
+.elevator_moveSide{
+    position: absolute;
+    top: 5px;
+    left: 300px;
+    height: 704px;
+    width: 300px;
+}
+
+.door_left{
+    position: absolute;
+    background-color: gray;
+    bottom: 0;
+    width: 0;
+    left: 0;
+    height: 88px;
+}
+.door_right{
+    position: absolute;
+    background-color: gray;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 88px;
+
+    /*border: solid 1px black;*/
+}
+.open{
+    position: absolute;
+    bottom: 150px;
+    right: 200px;
+    cursor: pointer;
+}
+.close{
+    position: absolute;
+    bottom: 150px;
+    right: 100px;
+    cursor: pointer;
+}
+
+.hashvich{
+    position: absolute;
+    right: 120px;
+    bottom: 200px;
+    border:  solid 1px black;
+    width: 120px;
+    height: 256px;
+}
+
+
+.fl{
+    width: 120px;
+    height: 30px;
+    border: solid 1px black;
+}
+.fl:hover{
+    background-color: gray;
+    cursor: pointer;
+}
+.ut{
+    position: absolute;
+    top: -12px;
+    left: 50%;
+}
+.yot{
+    position: absolute;
+    top: 20px;
+    left: 50%;
+}
+.vec{
+    position: absolute;
+    top: 54px;
+    left: 50%;
+}
+.hing{
+    position: absolute;
+    top: 86px;
+    left: 50%;
+}
+.chors{
+    position: absolute;
+    top: 118px;
+    left: 50%;
+}
+.ereq{
+    position: absolute;
+    top: 150px;
+    left: 50%;
+}
+.erku{
+    position: absolute;
+    top: 182px;
+    left: 50%;
+}
+.mek{
+    position: absolute;
+    top: 214px;
+    left: 50%;
+}
+
