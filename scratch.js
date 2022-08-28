@@ -49,20 +49,18 @@ const lift = document.querySelector(".obj");
 let button = document.querySelectorAll(".fl");
 button = [...button];
 lift.style.bottom = "0";
-let queue = [];
+const queue = [];
 
 
 let k = -2;
 
 
-let check = true,liftId,doorsCloseId1,doorsCloseId2,doorsOpenID1,doorsOpenID2,von ,bon;
+let check = true,liftId,doorsCloseId1,doorsCloseId2,doorsOpenID1,doorsOpenID2;
 // let nowPosition = parseInt(lift.style.bottom || 0);
 // console.log(nowPosition);
 for (let i = 0; i < button.length; i++) {
     button[i].addEventListener("click",(evt)=>{
         k++;
-
-
         const floor = +(evt.target.innerText);
 
         clearInterval(liftId);
@@ -79,10 +77,6 @@ for (let i = 0; i < button.length; i++) {
                 queue.push(floor);
             }
         }
-
-
-        // let a = queue.pop();
-        // queue.unshift(a);
         doorsClose().then(()=>{
             liftId = setInterval(()=>{
                 if(queue.length === 0){
