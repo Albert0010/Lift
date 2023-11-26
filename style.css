@@ -203,6 +203,11 @@ body{
     right: 100px;
     cursor: pointer;
 }
+.continue{
+    position: absolute;
+    bottom: 105px;
+    right: 140px;
+}
 
 .hashvich{
     position: absolute;
@@ -263,4 +268,5 @@ body{
     top: 214px;
     left: 50%;
 }
+
 

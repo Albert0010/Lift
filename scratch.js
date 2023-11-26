@@ -28,19 +28,41 @@ function doorsOpen() {
     })
 }
 
+function loop() {
+    doorsClose().then(()=>{
+        climb(queue[queue.length - 1]).then((res)=>{
+            if(res){
+                doorsOpen().then(()=>{
+                    queue.pop();
+
+                    if (queue.length === 0) {
+
+                        clearInterval(liftId);
+                        return;
+                    }
+                })
+            }
+        })
+    })
+}
+
 
 
 
 // Open and Close buttons
 const open = document.querySelector(".open");
 const close = document.querySelector(".close");
+const next = document.querySelector(".continue");
 close.addEventListener("click", (evt) => {
     doorsClose().then(r => r);
 })
 open.addEventListener("click",(evt)=>{
     doorsOpen().then(r => r);
 })
-
+let check = false;
+next.addEventListener(("click"),(evt)=>{
+    check = true;
+})
 
 
 
@@ -52,66 +74,49 @@ lift.style.bottom = "0";
 const queue = [];
 
 
+
+function climb(fl) {
+    return new Promise((resolve, reject)=>{
+        liftId = setInterval(()=>{
+            if(check){
+                loop();
+                check = false;
+            }
+            console.log(15);
+            if(parseInt(lift.style.bottom || 0) < (fl-1)*88){
+                lift.style.bottom = parseInt(lift.style.bottom || 0) + 4 +'px';
+            }else {
+                resolve(true);
+            }
+        },10);
+    })
+
+}
+
+
+
 let k = -2;
 
 
-let check = true,liftId,doorsCloseId1,doorsCloseId2,doorsOpenID1,doorsOpenID2;
+let liftId,doorsCloseId1,doorsCloseId2,doorsOpenID1,doorsOpenID2;
 // let nowPosition = parseInt(lift.style.bottom || 0);
 // console.log(nowPosition);
 for (let i = 0; i < button.length; i++) {
     button[i].addEventListener("click",(evt)=>{
-        k++;
-        const floor = +(evt.target.innerText);
-
         clearInterval(liftId);
         clearInterval(doorsCloseId1);
         clearInterval(doorsCloseId2);
         clearInterval(doorsOpenID1);
         clearInterval(doorsOpenID2);
+        const floor = +(evt.target.innerText);
 
-        let isInclude = queue.includes(floor);
-        if(!isInclude){
-            if(parseInt(lift.style.bottom || 0) > (+(floor)-1)*88 && parseInt(lift.style.bottom || 0) < (+(queue[k])-1)*88){
-                queue.unshift(floor);
-            }else {
-                queue.push(floor);
-            }
-        }
-        doorsClose().then(()=>{
-            liftId = setInterval(()=>{
-                if(queue.length === 0){
-                    k = -2;
-                    clearInterval(liftId);
-                }
-                else if(parseInt(lift.style.bottom || 0) > (+(queue[queue.length-1])-1)*88 ){
-                    lift.style.bottom = parseInt(lift.style.bottom || 0) - 4 +'px';
-                }
-                else if(parseInt(lift.style.bottom || 0) < (+(queue[queue.length-1])-1)*88){
-                    if(parseInt(lift.style.bottom || 0) > (+(queue[k])-1)*88 && parseInt(lift.style.bottom || 0) < (+(floor)-1)*88){
-
-                        let a = queue.pop();
-                        queue.unshift(a);
-                    }else {
-                        lift.style.bottom = parseInt(lift.style.bottom || 0) + 4 +'px';
-                    }
-                }
-                else  if(check){
-                    check = false;
-                    doorsOpen().
-                    then(()=>{
-                        doorsClose().
-                        then(()=>{
-                            queue.pop();
-                            check = true;
-                        });
-                    });
-                }
-            },10);
-
-        })
-
+        queue.push(floor);
+        loop();
     })
 }
+
+
+
 
 
 
